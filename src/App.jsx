@@ -31,7 +31,7 @@ const list = [
   },
 ];
 
-function App() {
+const App = () => {
   return (
     <div>
       <h1>My hacker Stories</h1>
@@ -44,11 +44,19 @@ function App() {
   );
 }
 
-function Search() {
+const Search = () => {
+  // perform a task in between
+  const handleChange = (event) => {
+    event.preventDefault();
+    console.log('Event:' + event);
+
+    console.log('Event Target Value: ' + event.target.value);
+  }
+
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input type="text" id='search' />
+      <input onClick={handleChange} type="text" id='search' />
     </div>
   );
 }
