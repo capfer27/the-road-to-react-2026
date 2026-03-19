@@ -12,7 +12,9 @@ const exponentialNumbers = numbers.map(number => {
 
 // console.log(exponentialNumbers)
 
-const list = [
+const App = () => {
+
+  const stories = [
   {
     title: 'React',
     url: 'https://react.dev/',
@@ -31,7 +33,6 @@ const list = [
   },
 ];
 
-const App = () => {
   return (
     <div>
       <h1>My hacker Stories</h1>
@@ -39,7 +40,7 @@ const App = () => {
 
         <hr />
       
-      <List />
+      <List list={stories}/>
     </div>
   );
 }
@@ -61,22 +62,26 @@ const Search = () => {
   );
 }
 
-function List() {
+const Item = (props) => {
+  return (
+      <li>
+          <span>
+            <a href={props.item.url}>{props.item.title}</a>
+          </span>
+          <span>{props.item.author}</span>
+          <span>{props.item.num_comments}</span>
+          <span>{props.item.points}</span>
+      </li>
+  )
+}
+
+const List = (props) => {
   return (
     <div>
         <ul>
-          {list.map(item => {
-            return (
-              <li key={item.objectID}>
-                <span>
-                  <a href={item.url}>{item.title}</a>
-                </span>
-                <span>{item.author}</span>
-                <span>{item.num_comments}</span>
-                <span>{item.points}</span>
-              </li>
-            );
-          })}
+          {props.list.map(item => (
+              <Item key={item.objectID} item={item}/>
+          ))}
         </ul>
     </div>
   );
