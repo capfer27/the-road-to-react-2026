@@ -11,29 +11,35 @@ const exponentialNumbers = numbers.map(number => {
 
 const App = () => {
 
+    // handler A
+  const handleSearch = (event) => {
+    // handler D
+    console.log(event.target.value);
+  }
+
   const stories = [
-  {
-    title: 'React',
-    url: 'https://react.dev/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-  },
-  {
-    title: 'Redux',
-    url: 'https://redux.js.org/',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  },
-];
+    {
+      title: 'React',
+      url: 'https://react.dev/',
+      author: 'Jordan Walke',
+      num_comments: 3,
+      points: 4,
+      objectID: 0,
+    },
+    {
+      title: 'Redux',
+      url: 'https://redux.js.org/',
+      author: 'Dan Abramov, Andrew Clark',
+      num_comments: 2,
+      points: 5,
+      objectID: 1,
+    },
+  ];
 
   return (
     <div>
       <h1>My hacker Stories</h1>
-      <Search /> 
+      <Search  onSearch={handleSearch}/> 
 
         <hr />
       
@@ -42,13 +48,16 @@ const App = () => {
   );
 }
 
-const Search = () => {
+const Search = (props) => {
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
   // perform a task in between
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
+
+    // handle C
+    props.onSearch(event);
   }
 
   return (
