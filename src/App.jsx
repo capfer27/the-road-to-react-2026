@@ -10,8 +10,6 @@ const exponentialNumbers = numbers.map(number => {
 // console.log(exponentialNumbers)
 
 const App = () => {
-  
-  console.log("App Renders");
 
   const stories = [
   {
@@ -46,8 +44,6 @@ const App = () => {
 
 const Search = () => {
 
-  console.log("Search Renders");
-
   const [searchTerm, setSearchTerm] = React.useState('');
 
   // perform a task in between
@@ -68,7 +64,6 @@ const Search = () => {
 }
 
 const Item = (props) => {
-  console.log("Item Renders");
   return (
       <li>
           <span>
@@ -82,7 +77,6 @@ const Item = (props) => {
 }
 
 const List = (props) => {
-  console.log("List Renders");
   return (
     <div>
         <ul>
