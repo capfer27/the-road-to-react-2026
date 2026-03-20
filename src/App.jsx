@@ -1,7 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import * as React from 'react';
 import './App.css'
 
 const numbers = [1, 2 , 3, 4, 5];
@@ -13,6 +10,8 @@ const exponentialNumbers = numbers.map(number => {
 // console.log(exponentialNumbers)
 
 const App = () => {
+  
+  console.log("App Renders");
 
   const stories = [
   {
@@ -46,23 +45,30 @@ const App = () => {
 }
 
 const Search = () => {
+
+  console.log("Search Renders");
+
+  const [searchTerm, setSearchTerm] = React.useState('');
+
   // perform a task in between
   const handleChange = (event) => {
-    event.preventDefault();
-    console.log('Event:' + event);
-
-    console.log('Event Target Value: ' + event.target.value);
+    setSearchTerm(event.target.value);
   }
 
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input onClick={handleChange} type="text" id='search' />
+      <input onChange={handleChange} type="text" id='search' />
+
+      <p> 
+        Searching for <strong>{searchTerm}</strong>.
+      </p>
     </div>
   );
 }
 
 const Item = (props) => {
+  console.log("Item Renders");
   return (
       <li>
           <span>
@@ -76,6 +82,7 @@ const Item = (props) => {
 }
 
 const List = (props) => {
+  console.log("List Renders");
   return (
     <div>
         <ul>
